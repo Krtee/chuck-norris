@@ -9,6 +9,9 @@ export interface GooglyEyeProps {
 const GooglyEye = ({ className }: GooglyEyeProps): JSX.Element => {
   const pupilRef = useRef<HTMLDivElement>(null);
 
+  /**
+   *  Attaches the movePupil function to the mousemove event
+   */
   useEffect(() => {
     addEventListener("mousemove", movePupil);
     return () => {

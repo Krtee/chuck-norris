@@ -1,12 +1,9 @@
+import Footer from "@/components/Footer";
 import GooglyEye from "@/components/GooglyEye";
-import { fetchJokeData } from "@/utils/jokeDataUtils";
-import { incrementVisitorCount } from "@/utils/visitorCountUtils";
+import JokeComponent from "@/components/JokeComponent";
 import Image from "next/image";
 
 const Home = async () => {
-  const joke: string = await fetchJokeData();
-  const visitorCount: number = await incrementVisitorCount();
-
   return (
     <div className=" min-h-screen m-8 p-8 bg-white rounded-xl">
       <div className="w-full pb-8">
@@ -33,15 +30,9 @@ const Home = async () => {
           />
         </div>
 
-        <div className="flex-1 min-w-40 flex justify-center items-center">
-          <p className="h-fit text-xl font-bold text-balance break-words hyphens-auto max-w-[500px]">
-            {joke}
-          </p>
-        </div>
+        <JokeComponent />
       </main>
-      <footer className="pt-8  ">
-        <p>{`Diese Webseite wurde bereits ${visitorCount} mal besucht.`}</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
