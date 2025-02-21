@@ -3,8 +3,11 @@
 import { incrementVisitorCount } from "@/utils/visitorCountUtils";
 import { useEffect, useState } from "react";
 
-const Footer = () => {
-  const [visitorCount, setVisitorCount] = useState(0);
+export interface FooterProps {
+  initialVisitorCount: number;
+}
+const Footer = ({ initialVisitorCount }: FooterProps) => {
+  const [visitorCount, setVisitorCount] = useState(initialVisitorCount);
 
   /**
    * Updates the visitor count every time the component mounts

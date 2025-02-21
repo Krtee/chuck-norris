@@ -2,14 +2,36 @@
 
 import { prisma } from "./prismaClient";
 
+const globalID = process.env.GLOBAL_ID;
+
+/**
+ *  fetches the visitor count from the global database
+ * @returns the current visitor count
+ * @onerror returns 0
+ */
+export const getVisitorCount = async (): Promise<number> => {
+  const result = await prisma.global.findUnique({
+    where: {
+      id: globalID,
+    },
+  });
+
+  if (!result) {
+    return 0;
+  }
+
+  return result.visitorCount;
+};
+
 /**
  * Increments the visitor count in the global database file by 1 and returns the new count
  * @returns the updated visitor count
+ * @onerror returns 0
  */
-export const incrementVisitorCount = async () => {
+export const incrementVisitorCount = async (): Promise<number> => {
   const result = await prisma.global.update({
     where: {
-      id: "chuck-norris",
+      id: globalID,
     },
     data: {
       visitorCount: {
@@ -18,5 +40,8 @@ export const incrementVisitorCount = async () => {
     },
   });
 
+  if (!result) {
+    return 0;
+  }
   return result.visitorCount;
 };
