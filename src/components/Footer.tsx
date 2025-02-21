@@ -1,6 +1,6 @@
 "use client";
 
-import { incrementVisitorCount } from "@/utils/visitorCountUtils";
+import { incrementVisitorCount } from "@/actions/visitorCountActions";
 import { useEffect, useState } from "react";
 
 export interface FooterProps {

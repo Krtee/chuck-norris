@@ -1,5 +1,5 @@
 "use client";
-import { fetchJokeData } from "@/utils/jokeDataUtils";
+import { fetchJokeData } from "@/actions/jokeDataActions";
 import { useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";

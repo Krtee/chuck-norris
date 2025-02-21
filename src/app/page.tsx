@@ -1,7 +1,7 @@
+import { getVisitorCount } from "@/actions/visitorCountActions";
 import ContentBody from "@/components/ContentBody";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { getVisitorCount } from "@/utils/visitorCountUtils";
 
 const Home = async () => {
   const initialVisitorCount = await getVisitorCount();

@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { prisma } from "./prismaClient";
+import { prisma } from "../utils/prismaClient";
 
 const globalID = process.env.GLOBAL_ID;
 
@@ -44,6 +44,7 @@ export const incrementVisitorCount = async (): Promise<number> => {
   if (!result) {
     return 0;
   }
+
   revalidatePath("/");
   return result.visitorCount;
 };
