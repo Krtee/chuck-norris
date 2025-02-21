@@ -2,8 +2,6 @@
 import { fetchJokeData } from "@/actions/jokeDataActions";
 import { useEffect, useState } from "react";
 
-export const dynamic = "force-dynamic";
-
 const JokeComponent = () => {
   const [joke, setJoke] = useState<string | undefined>();
 
