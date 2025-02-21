@@ -1,10 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import { withAccelerate } from "@prisma/extension-accelerate";
-
-/**
- * Initializes the Prisma client with the accelerate extension
- */
-const prisma = new PrismaClient().$extends(withAccelerate());
+import prisma from "./prismaClient";
 
 /**
  * Increments the visitor count in the global database file by 1 and returns the new count

@@ -1,5 +1,3 @@
-"use client";
-
 import { incrementVisitorCount } from "@/utils/visitorCountUtils";
 
 const Footer = async () => {

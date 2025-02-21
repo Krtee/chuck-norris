@@ -1,5 +1,3 @@
-"use client";
-
 import { fetchJokeData } from "@/utils/jokeDataUtils";
 
 const JokeComponent = async () => {
