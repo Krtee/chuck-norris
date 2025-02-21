@@ -1,5 +1,7 @@
 import { fetchJokeData } from "@/utils/jokeDataUtils";
 
+export const dynamic = "force-dynamic";
+
 const JokeComponent = async () => {
   const joke: string = await fetchJokeData();
 

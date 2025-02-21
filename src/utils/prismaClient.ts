@@ -1,25 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { withAccelerate } from "@prisma/extension-accelerate";
 
-/**
- *  Creates a PrismaClient with the accelerate extension
- * @returns A PrismaClient with the accelerate extension
- */
-const prismaClientSingleton = () => {
-  return new PrismaClient().$extends(withAccelerate());
-};
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-declare const globalThis: {
-  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
-};
+export const prisma =
+  globalForPrisma.prisma || new PrismaClient().$extends(withAccelerate());
 
-/**
- * this ensures that the prisma client is only created once
- */
-const prisma =
-  globalThis.prismaGlobal ||
-  (globalThis.prismaGlobal = prismaClientSingleton());
-
-export default prisma;
-
-if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
