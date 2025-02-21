@@ -3,7 +3,7 @@
 import { incrementVisitorCount } from "@/utils/visitorCountUtils";
 import { useEffect, useState } from "react";
 
-const Footer = async () => {
+const Footer = () => {
   const [visitorCount, setVisitorCount] = useState(0);
 
   /**
