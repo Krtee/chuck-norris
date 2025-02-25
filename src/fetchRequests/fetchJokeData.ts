@@ -1,5 +1,3 @@
-"use server";
-
 /**
  *  fetches a random Chuck Norris Joke from the API: https://api.chucknorris.io/jokes/random
  * @returns A random Chuck Norris Joke

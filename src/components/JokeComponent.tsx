@@ -1,5 +1,5 @@
 "use client";
-import { fetchJokeData } from "@/actions/jokeDataActions";
+import { fetchJokeData } from "@/fetchRequests/fetchJokeData";
 import { useEffect, useState } from "react";
 
 const JokeComponent = () => {
